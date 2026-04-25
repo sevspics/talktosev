@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talk To Sev / Marketing advisory for service businesses</title>
+  <meta name="description" content="Sev Mozhaev. 5,000+ videos. 1.6M followers. 500M views. 7+ years figuring out what makes a brand searchable. The marketing advisory practice for service businesses doing $5k–$15k/mo.">
+
+  <meta property="og:title" content="Talk To Sev / Marketing advisory">
+  <meta property="og:description" content="5,000+ videos. 1.6M followers. 500M views. The marketing advisory practice for service businesses.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    /* Page-specific: home */
+
+    .hero {
+      padding-top: var(--space-xxxl);
+      padding-bottom: var(--space-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-tag { color: var(--accent); margin-bottom: var(--space-l); }
+    .hero-h1 {
+      max-width: 16ch;
+      margin-bottom: var(--space-xl);
+    }
+    .hero-sub {
+      font-size: 1.25rem;
+      max-width: 50ch;
+      color: var(--fg-2);
+      margin-bottom: var(--space-xl);
+      line-height: 1.5;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-m);
+      flex-wrap: wrap;
+    }
+
+    .stats {
+      padding-top: var(--space-section);
+      padding-bottom: var(--space-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+    }
+    .stat-num {
+      font-family: var(--font-sans);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--fg-0);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 0 0 var(--space-s);
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-2);
+      margin: 0;
+    }
+
+    .thesis {
+      padding-top: var(--space-section);
+      padding-bottom: var(--space-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-tag { color: var(--accent); margin-bottom: var(--space-l); }
+    .thesis-h2 { max-width: 18ch; margin-bottom: var(--space-xl); }
+    .thesis-body {
+      max-width: 56ch;
+      font-size: 1.125rem;
+      color: var(--fg-1);
+    }
+    .thesis-body p { margin-bottom: var(--space-m); }
+
+    .offers {
+      padding-top: var(--space-section);
+      padding-bottom: var(--space-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .offer {
+      padding: var(--space-xxl) 0;
+      border-top: 1px solid var(--border-strong);
+    }
+    .offer:first-of-type { border-top: none; padding-top: var(--space-xl); }
+    .offer-tag {
+      color: var(--accent);
+      margin-bottom: var(--space-l);
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xxl);
+      align-items: start;
+    }
+    .offer-name {
+      font-size: 2.25rem;
+      margin: 0 0 var(--space-s);
+      letter-spacing: -0.025em;
+    }
+    .offer-price {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin: 0 0 var(--space-l);
+    }
+    .offer-pitch {
+      font-size: 1.125rem;
+      color: var(--fg-1);
+      margin: 0 0 var(--space-l);
+      max-width: 36ch;
+    }
+    .offer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .offer-list li {
+      padding: var(--space-m) 0;
+      border-top: 1px solid var(--border);
+      color: var(--fg-1);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-m);
+    }
+    .offer-list li:first-child { border-top: 1px solid var(--border-strong); }
+    .offer-list li:last-child { border-bottom: 1px solid var(--border-strong); }
+    .offer-list li::before {
+      content: "→";
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+    .offer-list strong { color: var(--fg-0); font-weight: 600; }
+
+    .results {
+      padding-top: var(--space-section);
+      padding-bottom: var(--space-section);
+      border-bottom: 1px solid var(--border);
+    }
+    .results-h2 { max-width: 16ch; margin-bottom: var(--space-xl); }
+    .results-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .results-list li {
+      padding: var(--space-l) 0;
+      border-top: 1px solid var(--border-strong);
+      font-size: 1.375rem;
+      color: var(--fg-0);
+      letter-spacing: -0.005em;
+      line-height: 1.4;
+    }
+    .results-list li:last-child { border-bottom: 1px solid var(--border-strong); }
+    .results-list li strong { color: var(--accent); font-weight: 700; }
+
+    .final-cta {
+      padding-top: var(--space-section);
+      padding-bottom: var(--space-section);
+    }
+    .final-cta h2 {
+      max-width: 18ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 720px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-l); }
+      .stat-num { font-size: 2.25rem; }
+      .offer-grid { grid-template-columns: 1fr; gap: var(--space-l); }
+      .offer-name { font-size: 1.625rem; }
+      .results-list li { font-size: 1.125rem; }
+      .hero-sub { font-size: 1.0625rem; }
+      .hero { padding-top: var(--space-xl); padding-bottom: var(--space-xxxl); }
+      .stats, .thesis, .offers, .results, .final-cta {
+        padding-top: var(--space-xxxl);
+        padding-bottom: var(--space-xxxl);
+      }
+      .btn { padding: 0.875rem 1.5rem; font-size: 0.875rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand-mark" href="/">Talk To Sev</a>
+      <a class="mono" href="mailto:sev@sevspics.com" style="color: var(--fg-2); border-bottom: none;">sev@sevspics.com</a>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <p class="mono hero-tag">TALK TO SEV / MARKETING ADVISORY</p>
+    <h1 class="hero-h1">AI search is replacing Google. The brands cited inside the answers own the next decade.</h1>
+    <p class="hero-sub">5,000+ videos. 1.6M followers. 500M views. 7+ years figuring out what makes a brand searchable. I do that for service businesses now.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book Claude With Me / $350</a>
+      <a class="btn btn-ghost" href="in-your-corner.html">Get In Your Corner / $2,500/mo</a>
+    </div>
+  </section>
+
+  <section class="stats container">
+    <div class="stats-grid">
+      <div>
+        <p class="stat-num">5,000+</p>
+        <p class="stat-label">Videos posted</p>
+      </div>
+      <div>
+        <p class="stat-num">1.6M</p>
+        <p class="stat-label">Followers built</p>
+      </div>
+      <div>
+        <p class="stat-num">500M</p>
+        <p class="stat-label">Total views</p>
+      </div>
+      <div>
+        <p class="stat-num">7+</p>
+        <p class="stat-label">Years doing it</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="thesis container">
+    <p class="mono section-tag">THE THESIS</p>
+    <h2 class="thesis-h2">Most marketing is built for Google. Google's losing.</h2>
+    <div class="thesis-body">
+      <p>AI answers are the new front door. People don't browse ten blue links anymore. They ask, and they read what the AI tells them.</p>
+      <p>YouTube and podcast audio feed those answers more than anything else. The brands cited inside AI-generated results will own the next decade of attention.</p>
+      <p>I build the content systems that get you cited. Not generic. Not theoretical. Engineered for your specific business.</p>
+    </div>
+  </section>
+
+  <section class="offers container">
+    <p class="mono section-tag">TWO WAYS IN</p>
+
+    <div class="offer">
+      <p class="mono offer-tag">01 / SESSION</p>
+      <div class="offer-grid">
+        <div>
+          <h2 class="offer-name">Claude With Me</h2>
+          <p class="offer-price">$350 / one-time / 60 minutes</p>
+          <p class="offer-pitch">You aren't paying for tips. You're paying to save years of trial and error. One call, one tailored plan, one strategy you can act on Monday.</p>
+          <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book the session</a>
+        </div>
+        <div>
+          <ul class="offer-list">
+            <li><div><strong>Deep-Dive Diagnosis.</strong> We look at your current presence and find exactly where attention is leaking.</div></li>
+            <li><div><strong>The Tailored Plan.</strong> A broken-down, actionable strategy designed for your industry and your goals.</div></li>
+            <li><div><strong>Proven Logic.</strong> The same frameworks that took a residential builder to 220k followers and made a major company the top organic voice in their field.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer">
+      <p class="mono offer-tag">02 / RETAINER</p>
+      <div class="offer-grid">
+        <div>
+          <h2 class="offer-name">In Your Corner</h2>
+          <p class="offer-price">$2,500 / month / no lock-in</p>
+          <p class="offer-pitch">The problem isn't awareness. It's not having someone senior enough to hold the strategy and push the team every week. I do that for you.</p>
+          <a class="btn" href="in-your-corner.html">See what's inside</a>
+        </div>
+        <div>
+          <ul class="offer-list">
+            <li><div><strong>Weekly 1-hour call.</strong> Strategy, reviews, decisions, direction.</div></li>
+            <li><div><strong>WhatsApp access.</strong> Ideas and fast feedback between calls.</div></li>
+            <li><div><strong>Content pipeline managed.</strong> I work with your editing team to fix what's underperforming.</div></li>
+            <li><div><strong>Fresh ideas every week.</strong> New angles, formats, and hooks relevant to your business now.</div></li>
+            <li><div><strong>Accountability loop.</strong> Progress tracked, commitments held.</div></li>
+            <li><div><strong>Learning Hub strategy.</strong> Turn your existing knowledge into a searchable, trust-building asset.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results container">
+    <p class="mono section-tag">RECEIPTS</p>
+    <h2 class="results-h2">Not promises. Outcomes.</h2>
+    <ul class="results-list">
+      <li><strong>220k followers.</strong> Took a residential builder from quiet to dominant in their region.</li>
+      <li><strong>Top organic voice.</strong> Established a major company as the most cited brand in their industry.</li>
+      <li><strong>500M views, 1.6M followers, 5,000+ videos.</strong> Across my own brands, all built with the same playbook.</li>
+    </ul>
+  </section>
+
+  <section class="final-cta container">
+    <p class="mono section-tag">START</p>
+    <h2>Book the session. Then we talk about what comes next.</h2>
+    <div class="hero-ctas">
+      <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book Claude With Me / $350</a>
+      <a class="btn btn-ghost" href="in-your-corner.html">Or get In Your Corner</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-header-inner">
+      <a class="brand-mark" href="/">Talk To Sev</a>
+      <p style="margin: 0;">
+        <a href="mailto:sev@sevspics.com">sev@sevspics.com</a>
+        <span class="footer-sep">/</span>
+        <a href="https://instagram.com/talktosev" target="_blank" rel="noopener">@talktosev</a>
+        <span class="footer-sep">/</span>
+        <a href="https://instagram.com/sevspics" target="_blank" rel="noopener">@sevspics</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

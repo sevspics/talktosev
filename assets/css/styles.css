@@ -1,0 +1,165 @@
+/* Talk To Sev — shared base */
+
+:root {
+  --bg-0: #0a0a0a;
+  --bg-1: #111111;
+  --bg-2: #1a1a1a;
+  --fg-0: #f5f5f5;
+  --fg-1: #e8e8e8;
+  --fg-2: #888888;
+  --fg-3: #5a5a5a;
+  --accent: #f5a524;
+  --accent-dim: #c88a1f;
+  --border: #1d1d1d;
+  --border-strong: #2a2a2a;
+
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Monaco, monospace;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-s: 0.75rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-xxl: 4rem;
+  --space-xxxl: 6rem;
+  --space-section: 8rem;
+
+  --container: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-weight: 600;
+  margin: 0 0 var(--space-l);
+}
+
+h1 { font-size: 4.25rem; line-height: 1.0; letter-spacing: -0.035em; font-weight: 700; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.125rem; }
+
+p { margin: 0 0 var(--space-m); color: var(--fg-1); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+a:hover, a:focus { border-bottom-color: var(--accent); outline: none; }
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 1rem 1.875rem;
+  background: var(--accent);
+  color: var(--bg-0);
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.btn:hover, .btn:focus {
+  background: transparent;
+  color: var(--accent);
+  outline: none;
+  border-bottom: 1px solid var(--accent);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--fg-0);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover, .btn-ghost:focus {
+  background: var(--fg-0);
+  color: var(--bg-0);
+  border-color: var(--fg-0);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-xxxl) var(--space-l);
+}
+
+.brand-mark {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--fg-0);
+  text-transform: uppercase;
+  border-bottom: none;
+}
+.brand-mark::after { content: "."; color: var(--accent); }
+.brand-mark:hover { border-bottom: none; color: var(--accent); }
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+.site-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--fg-2);
+}
+.site-footer .container {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+.site-footer a { color: var(--fg-2); border-bottom: none; }
+.site-footer a:hover { color: var(--accent); }
+.footer-sep { color: var(--fg-3); margin: 0 0.4rem; }
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  h1 { font-size: 2.5rem; line-height: 1.05; letter-spacing: -0.025em; }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.25rem; }
+  .container { padding: var(--space-xl) var(--space-m); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation-duration: 0.01ms !important; }
+}
