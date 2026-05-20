@@ -3,333 +3,377 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Talk To Sev / Marketing advisory for service businesses</title>
-  <meta name="description" content="Sev Mozhaev. 5,000+ videos. 1.6M followers. 500M views. 7+ years figuring out what makes a brand searchable. The marketing advisory practice for service businesses doing $5k–$15k/mo.">
+  <title>Talk To Sev / Marketing & Claude advisory for service businesses</title>
+  <meta name="description" content="Two ways in: get your service business making more money or running 3x more efficiently with AI. Sev Mozhaev. 1.6M followers, 500M views, 7+ years building brands that get found.">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <meta property="og:title" content="Talk To Sev / Marketing advisory">
-  <meta property="og:description" content="5,000+ videos. 1.6M followers. 500M views. The marketing advisory practice for service businesses.">
+  <meta property="og:title" content="Talk To Sev / Marketing & Claude advisory">
+  <meta property="og:description" content="Two ways in. More money, or more efficient. Sev Mozhaev teaches service businesses how to do both.">
   <meta property="og:image" content="https://talktosev.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://talktosev.com/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Talk To Sev / Marketing advisory">
-  <meta name="twitter:description" content="5,000+ videos. 1.6M followers. 500M views. The marketing advisory practice for service businesses.">
+  <meta name="twitter:title" content="Talk To Sev / Marketing & Claude advisory">
+  <meta name="twitter:description" content="Two ways in. More money, or more efficient.">
   <meta name="twitter:image" content="https://talktosev.com/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/styles.css">
-
-  <style>
-    /* Page-specific: home */
-
-    .hero {
-      padding-top: var(--space-xxxl);
-      padding-bottom: var(--space-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-tag { color: var(--accent); margin-bottom: var(--space-l); }
-    .hero-h1 {
-      max-width: 16ch;
-      margin-bottom: var(--space-xl);
-    }
-    .hero-sub {
-      font-size: 1.25rem;
-      max-width: 50ch;
-      color: var(--fg-2);
-      margin-bottom: var(--space-xl);
-      line-height: 1.5;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: var(--space-m);
-      flex-wrap: wrap;
-    }
-
-    .stats {
-      padding-top: var(--space-section);
-      padding-bottom: var(--space-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-xl);
-    }
-    .stat-num {
-      font-family: var(--font-sans);
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--fg-0);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin: 0 0 var(--space-s);
-    }
-    .stat-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--fg-2);
-      margin: 0;
-    }
-
-    .thesis {
-      padding-top: var(--space-section);
-      padding-bottom: var(--space-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .section-tag { color: var(--accent); margin-bottom: var(--space-l); }
-    .thesis-h2 { max-width: 18ch; margin-bottom: var(--space-xl); }
-    .thesis-body {
-      max-width: 56ch;
-      font-size: 1.125rem;
-      color: var(--fg-1);
-    }
-    .thesis-body p { margin-bottom: var(--space-m); }
-
-    .offers {
-      padding-top: var(--space-section);
-      padding-bottom: var(--space-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .offer {
-      padding: var(--space-xxl) 0;
-      border-top: 1px solid var(--border-strong);
-    }
-    .offer:first-of-type { border-top: none; padding-top: var(--space-xl); }
-    .offer-tag {
-      color: var(--accent);
-      margin-bottom: var(--space-l);
-    }
-    .offer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xxl);
-      align-items: start;
-    }
-    .offer-name {
-      font-size: 2.25rem;
-      margin: 0 0 var(--space-s);
-      letter-spacing: -0.025em;
-    }
-    .offer-price {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      margin: 0 0 var(--space-l);
-    }
-    .offer-pitch {
-      font-size: 1.125rem;
-      color: var(--fg-1);
-      margin: 0 0 var(--space-l);
-      max-width: 36ch;
-    }
-    .offer-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .offer-list li {
-      padding: var(--space-m) 0;
-      border-top: 1px solid var(--border);
-      color: var(--fg-1);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: var(--space-m);
-    }
-    .offer-list li:first-child { border-top: 1px solid var(--border-strong); }
-    .offer-list li:last-child { border-bottom: 1px solid var(--border-strong); }
-    .offer-list li::before {
-      content: "→";
-      color: var(--accent);
-      font-family: var(--font-mono);
-    }
-    .offer-list strong { color: var(--fg-0); font-weight: 600; }
-
-    .results {
-      padding-top: var(--space-section);
-      padding-bottom: var(--space-section);
-      border-bottom: 1px solid var(--border);
-    }
-    .results-h2 { max-width: 16ch; margin-bottom: var(--space-xl); }
-    .results-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .results-list li {
-      padding: var(--space-l) 0;
-      border-top: 1px solid var(--border-strong);
-      font-size: 1.375rem;
-      color: var(--fg-0);
-      letter-spacing: -0.005em;
-      line-height: 1.4;
-    }
-    .results-list li:last-child { border-bottom: 1px solid var(--border-strong); }
-    .results-list li strong { color: var(--accent); font-weight: 700; }
-
-    .final-cta {
-      padding-top: var(--space-section);
-      padding-bottom: var(--space-section);
-    }
-    .final-cta h2 {
-      max-width: 18ch;
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (max-width: 720px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-l); }
-      .stat-num { font-size: 2.25rem; }
-      .offer-grid { grid-template-columns: 1fr; gap: var(--space-l); }
-      .offer-name { font-size: 1.625rem; }
-      .results-list li { font-size: 1.125rem; }
-      .hero-sub { font-size: 1.0625rem; }
-      .hero { padding-top: var(--space-xl); padding-bottom: var(--space-xxxl); }
-      .stats, .thesis, .offers, .results, .final-cta {
-        padding-top: var(--space-xxxl);
-        padding-bottom: var(--space-xxxl);
-      }
-      .btn { padding: 0.875rem 1.5rem; font-size: 0.875rem; }
-    }
-  </style>
 </head>
 
 <body>
+  <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container site-header-inner">
-      <a class="brand-mark" href="/">Talk To Sev</a>
-      <a class="mono" href="mailto:sev@sevspics.com" style="color: var(--fg-2); border-bottom: none;">sev@sevspics.com</a>
-    </div>
-  </header>
-
-  <section class="hero container">
-    <p class="mono hero-tag">TALK TO SEV / MARKETING ADVISORY</p>
-    <h1 class="hero-h1">AI search is replacing Google. The brands cited inside the answers own the next decade.</h1>
-    <p class="hero-sub">5,000+ videos. 1.6M followers. 500M views. 7+ years figuring out what makes a brand searchable. I do that for service businesses now.</p>
-    <div class="hero-ctas">
-      <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book Claude With Me / $350</a>
-      <a class="btn btn-ghost" href="in-your-corner.html">Get In Your Corner / $2,500/mo</a>
-    </div>
-  </section>
-
-  <section class="stats container">
-    <div class="stats-grid">
-      <div>
-        <p class="stat-num">5,000+</p>
-        <p class="stat-label">Videos posted</p>
-      </div>
-      <div>
-        <p class="stat-num">1.6M</p>
-        <p class="stat-label">Followers built</p>
-      </div>
-      <div>
-        <p class="stat-num">500M</p>
-        <p class="stat-label">Total views</p>
-      </div>
-      <div>
-        <p class="stat-num">7+</p>
-        <p class="stat-label">Years doing it</p>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/"><span class="live-dot"></span>Talk To Sev <span class="topbar-sub">/ Choose your focus</span></a>
+      <div class="topbar-links">
+        <a href="https://enquire.talktosev.com/apply" target="_blank" rel="noopener">Marketing</a>
+        <a href="claude.html">Claude</a>
+        <a class="nav-link-aux" href="learning.html">Learning Hub</a>
+        <a class="nav-link-aux" href="mailto:sev@sevspics.com">Email</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="thesis container">
-    <p class="mono section-tag">THE THESIS</p>
-    <h2 class="thesis-h2">Most marketing is built for Google. Google's losing.</h2>
-    <div class="thesis-body">
-      <p>AI answers are the new front door. People don't browse ten blue links anymore. They ask, and they read what the AI tells them.</p>
-      <p>YouTube and podcast audio feed those answers more than anything else. The brands cited inside AI-generated results will own the next decade of attention.</p>
-      <p>I build the content systems that get you cited. Not generic. Not theoretical. Engineered for your specific business.</p>
-    </div>
-  </section>
+  <div class="container">
 
-  <section class="offers container">
-    <p class="mono section-tag">TWO WAYS IN</p>
+    <section class="hero center">
+      <h1>Tell me what's broken. <span class="swoop">I'll point you</span> at the <span class="underline">fix.</span></h1>
+      <p class="hero-lede">Two questions. Takes 30 seconds. No email, no sales pitch, just a straight answer on where to start.</p>
+      <a class="hero-arrow" href="#quiz" aria-label="Start the quiz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
 
-    <div class="offer">
-      <p class="mono offer-tag">01 / SESSION</p>
-      <div class="offer-grid">
-        <div>
-          <h2 class="offer-name">Claude With Me</h2>
-          <p class="offer-price">$350 / one-time / 60 minutes</p>
-          <p class="offer-pitch">You aren't paying for tips. You're paying to save years of trial and error. One call, one tailored plan, one strategy you can act on Monday.</p>
-          <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book the session</a>
+    <section style="border-bottom: none; padding-top: 40px;">
+      <div class="quiz" id="quiz">
+        <span class="quiz-glow" aria-hidden="true"></span>
+        <div class="quiz-progress" aria-hidden="true">
+          <span class="quiz-dot"></span>
+          <span class="quiz-dot"></span>
+          <span class="quiz-dot"></span>
         </div>
-        <div>
-          <ul class="offer-list">
-            <li><div><strong>Deep-Dive Diagnosis.</strong> We look at your current presence and find exactly where attention is leaking.</div></li>
-            <li><div><strong>The Tailored Plan.</strong> A broken-down, actionable strategy designed for your industry and your goals.</div></li>
-            <li><div><strong>Proven Logic.</strong> The same frameworks that took a residential builder to 220k followers and made a major company the top organic voice in their field.</div></li>
-          </ul>
+
+        <div class="quiz-step is-active" data-step="1">
+          <p class="quiz-meta">Question 1 of 2</p>
+          <h2 class="quiz-q">Which one's <span class="serif">the bigger drag</span> right now?</h2>
+          <div class="quiz-options" role="radiogroup">
+            <button class="quiz-option" type="button" data-weight="marketing">
+              <span class="quiz-option-tag">A</span>
+              <span class="quiz-option-text"><strong>Not enough leads from our content.</strong> We post but nothing pulls in.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+            <button class="quiz-option" type="button" data-weight="claude">
+              <span class="quiz-option-tag">B</span>
+              <span class="quiz-option-text"><strong>AI should be doing more for us.</strong> Too much manual work day-to-day.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+            <button class="quiz-option" type="button" data-weight="both">
+              <span class="quiz-option-tag">C</span>
+              <span class="quiz-option-text"><strong>Honestly, both.</strong> Marketing leaks and the back-end is hand-cranked.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <p class="quiz-meta">Question 2 of 2</p>
+          <h2 class="quiz-q">How do you <span class="serif">want to fix it?</span></h2>
+          <div class="quiz-options" role="radiogroup">
+            <button class="quiz-option" type="button" data-weight="marketing">
+              <span class="quiz-option-tag">A</span>
+              <span class="quiz-option-text"><strong>A full day in the room.</strong> Bring the team, build the system, walk out with it running.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+            <button class="quiz-option" type="button" data-weight="claude">
+              <span class="quiz-option-tag">B</span>
+              <span class="quiz-option-text"><strong>A focused 60-minute call.</strong> One plan, in writing. I run it from there.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+            <button class="quiz-option" type="button" data-weight="both">
+              <span class="quiz-option-tag">C</span>
+              <span class="quiz-option-text"><strong>Show me what fits.</strong> I'm flexible. Pick the most sensible move for me.</span>
+              <span class="quiz-option-arrow">→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step quiz-result" data-step="3">
+          <p class="quiz-meta">Your fit</p>
+          <h2 class="quiz-q quiz-result-h"><span class="serif">Start with</span> <span class="quiz-result-name" data-result-name>Claude With Me</span>.</h2>
+          <p class="quiz-result-reason" data-result-reason></p>
+          <div class="quiz-result-card" data-result-card>
+            <span class="quiz-result-price" data-result-price>$385</span>
+            <span class="quiz-result-format" data-result-format>60-min 1:1 session</span>
+          </div>
+          <div class="quiz-result-ctas">
+            <a class="btn" data-result-cta href="claude.html">See the offer <span class="arr">→</span></a>
+            <a class="quiz-restart-link" data-result-alt href="https://enquire.talktosev.com/apply">Or see the other one</a>
+          </div>
+          <button class="quiz-restart" type="button" aria-label="Start the quiz over">↺ Start over</button>
         </div>
       </div>
+    </section>
+
+    <div style="margin: 0 -32px;">
+      <section class="stats" style="margin: 0;">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat">
+              <div class="stat-num">5,000<span class="small">+</span></div>
+              <div class="stat-label">Videos posted</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">1.6<span class="small">M</span></div>
+              <div class="stat-label">Followers built</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">500<span class="small">M</span></div>
+              <div class="stat-label">Total views</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">7<span class="small">+</span></div>
+              <div class="stat-label">Years doing it</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <div class="offer">
-      <p class="mono offer-tag">02 / RETAINER</p>
-      <div class="offer-grid">
-        <div>
-          <h2 class="offer-name">In Your Corner</h2>
-          <p class="offer-price">$2,500 / month / no lock-in</p>
-          <p class="offer-pitch">The problem isn't awareness. It's not having someone senior enough to hold the strategy and push the team every week. I do that for you.</p>
-          <a class="btn" href="in-your-corner.html">See what's inside</a>
-        </div>
-        <div>
-          <ul class="offer-list">
-            <li><div><strong>Weekly 1-hour call.</strong> Strategy, reviews, decisions, direction.</div></li>
-            <li><div><strong>WhatsApp access.</strong> Ideas and fast feedback between calls.</div></li>
-            <li><div><strong>Content pipeline managed.</strong> I work with your editing team to fix what's underperforming.</div></li>
-            <li><div><strong>Fresh ideas every week.</strong> New angles, formats, and hooks relevant to your business now.</div></li>
-            <li><div><strong>Accountability loop.</strong> Progress tracked, commitments held.</div></li>
-            <li><div><strong>Learning Hub strategy.</strong> Turn your existing knowledge into a searchable, trust-building asset.</div></li>
-          </ul>
+    <section>
+      <div class="who-grid">
+        <img class="who-photo" src="assets/img/sev-portrait.webp" alt="Sev Mozhaev" loading="lazy">
+        <div class="who-text">
+          <div class="eyebrow"><span class="chip chip-red">Who is Sev?</span></div>
+          <h2>Ex-schoolteacher who built <span class="swoop">1.6M followers.</span> Now teaching service businesses.</h2>
+          <p>I was a high school teacher. Then I picked up a camera. <strong>5,000 videos and 500M views later</strong>, I'd figured out what makes a brand searchable, what gets clients to find you, and what makes the AI pick you when it answers questions.</p>
+          <p>I co-founded Bright Star Studios. Took a residential builder from quiet to <strong>220k followers</strong>. Made a major company the <strong>top organic voice</strong> in their industry.</p>
+          <p>Now I run a content workshop and a 60-minute Claude With Me session to teach the things that actually moved the needle for those clients. Without the agency tax. Without strategy decks that don't survive contact with the real world.</p>
         </div>
       </div>
+
+      <div style="margin-top: 56px;">
+        <div class="eyebrow"><span class="chip">Receipts</span><span>Not promises. Outcomes.</span></div>
+        <div class="receipts-grid">
+          <div class="receipt">
+            <p class="receipt-num">220<em>k</em></p>
+            <p class="receipt-label">Followers built</p>
+            <p class="receipt-body">Took a residential builder from quiet to dominant in their region using the same Compound system you'll learn in the Marketing workshop.</p>
+          </div>
+          <div class="receipt">
+            <p class="receipt-num">#1</p>
+            <p class="receipt-label">Organic voice</p>
+            <p class="receipt-body">Established a major company as the most cited brand in their industry across YouTube, podcasts and AI answers.</p>
+          </div>
+          <div class="receipt">
+            <p class="receipt-num">500<em>M</em></p>
+            <p class="receipt-label">Views earned</p>
+            <p class="receipt-body">Across my own brands: 1.6M followers, 5,000+ videos, 500M views. All built on the same playbook I teach in the room.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="margin: 0 -32px;">
+      <section class="logos" style="margin: 0;">
+        <div class="container logos-head">
+          <p class="mono">Featured / Worked with</p>
+        </div>
+        <div class="marquee">
+          <div class="marquee-track">
+            <div class="marquee-item"><img src="assets/img/logos/2.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/3.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/5.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/6.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/7.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/8.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/9.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/10.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/11.png" alt=""></div>
+            <div class="marquee-item"><img src="assets/img/logos/12.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/2.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/3.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/5.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/6.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/7.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/8.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/9.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/10.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/11.png" alt=""></div>
+            <div class="marquee-item" aria-hidden="true"><img src="assets/img/logos/12.png" alt=""></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section>
+      <div class="lhub-card">
+        <div class="lhub-visual"><div class="play">▶</div></div>
+        <div>
+          <div class="eyebrow"><span class="chip chip-blue">Learning Hub</span></div>
+          <h2>The thinking behind the work, <span class="swoop">free.</span></h2>
+          <p>Short videos and articles on marketing, content systems, Claude, and how brands get cited inside AI answers. Watch a few before you book.</p>
+          <a class="btn btn-ghost" href="learning.html">Browse the Learning Hub <span class="arr">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <span class="cta-stamp">★ Start here</span>
+      <h2>Pick a path. <em>Book a date.</em></h2>
+      <p>Marketing workshop if you want clients pulled in by content. Claude With Me if you want AI doing the work of three people.</p>
+      <div class="cta-ctas">
+        <a class="btn btn-red" href="https://enquire.talktosev.com/apply" target="_blank" rel="noopener">Marketing workshop <span class="arr">→</span></a>
+        <a class="btn" href="claude.html">Claude With Me <span class="arr">→</span></a>
+      </div>
+      <p class="cta-footnote">takes 30 seconds to find your fit ↑</p>
     </div>
   </section>
 
-  <section class="results container">
-    <p class="mono section-tag">RECEIPTS</p>
-    <h2 class="results-h2">Not promises. Outcomes.</h2>
-    <ul class="results-list">
-      <li><strong>220k followers.</strong> Took a residential builder from quiet to dominant in their region.</li>
-      <li><strong>Top organic voice.</strong> Established a major company as the most cited brand in their industry.</li>
-      <li><strong>500M views, 1.6M followers, 5,000+ videos.</strong> Across my own brands, all built with the same playbook.</li>
-    </ul>
-  </section>
-
-  <section class="final-cta container">
-    <p class="mono section-tag">START</p>
-    <h2>Book the session. Then we talk about what comes next.</h2>
-    <div class="hero-ctas">
-      <a class="btn" href="https://sevspics.github.io/run-claude-with-me/" target="_blank" rel="noopener">Book Claude With Me / $350</a>
-      <a class="btn btn-ghost" href="in-your-corner.html">Or get In Your Corner</a>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container site-header-inner">
-      <a class="brand-mark" href="/">Talk To Sev</a>
-      <p style="margin: 0;">
-        <a href="mailto:sev@sevspics.com">sev@sevspics.com</a>
-        <span class="footer-sep">/</span>
-        <a href="https://instagram.com/talktosev" target="_blank" rel="noopener">@talktosev</a>
-        <span class="footer-sep">/</span>
-        <a href="https://instagram.com/sevspics" target="_blank" rel="noopener">@sevspics</a>
-      </p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Talk To Sev / 2026</span>
+      <span class="footer-tag">Marketing &amp; Claude advisory</span>
+      <span>
+        <a href="mailto:sev@sevspics.com">sev@sevspics.com</a> ·
+        <a href="https://instagram.com/talktosev">@talktosev</a>
+      </span>
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var quiz = document.getElementById('quiz');
+      if (!quiz) return;
+      var dots = quiz.querySelectorAll('.quiz-progress .quiz-dot');
+      var steps = quiz.querySelectorAll('.quiz-step');
+      var scores = { marketing: 0, claude: 0 };
+
+      function setStep(n) {
+        steps.forEach(function (s) {
+          s.classList.toggle('is-active', s.dataset.step === String(n));
+        });
+        dots.forEach(function (d, i) {
+          d.classList.remove('is-active', 'is-done');
+          if (i + 1 < n) d.classList.add('is-done');
+          else if (i + 1 === n) d.classList.add('is-active');
+        });
+      }
+
+      function reset() {
+        scores.marketing = 0;
+        scores.claude = 0;
+        setStep(1);
+      }
+
+      var APPLY_URL = 'https://enquire.talktosev.com/apply';
+      var results = {
+        marketing: {
+          name: 'the Marketing Workshop',
+          colorClass: '',
+          reason: "Marketing's the bigger drag and you want to fix it properly with the team. The full day is built for exactly that: camera confidence, hooks, The Compound, and a 90-day plan you'll actually run.",
+          hidePriceCard: true,
+          cta: { label: 'Apply for the workshop', href: APPLY_URL, external: true },
+          alt: { label: 'Or try Claude With Me first', href: 'claude.html' },
+        },
+        claude: {
+          name: 'Claude With Me',
+          colorClass: 'cool',
+          reason: "AI is the bigger leverage and you want a focused conversation, not a multi-day commitment. 60 minutes, a tailored plan in your inbox the next day, then you run it.",
+          price: '$385',
+          format: '60-min 1:1 session',
+          cta: { label: 'See Claude With Me', href: 'claude.html' },
+          alt: { label: 'Or apply for the Marketing workshop', href: APPLY_URL, external: true },
+        },
+        both: {
+          name: 'Claude With Me',
+          colorClass: 'cool',
+          reason: "Both fronts are leaking. When that happens, Claude With Me first is the play. Fastest payback, lowest friction, and the AI usually frees up the time you need to do the marketing right.",
+          price: '$385',
+          format: '60-min 1:1 session',
+          cta: { label: 'Start with Claude With Me', href: 'claude.html' },
+          alt: { label: 'Or apply for the Marketing workshop', href: APPLY_URL, external: true },
+        },
+      };
+
+      function applyLink(el, link) {
+        el.setAttribute('href', link.href);
+        if (link.external) {
+          el.setAttribute('target', '_blank');
+          el.setAttribute('rel', 'noopener');
+        } else {
+          el.removeAttribute('target');
+          el.removeAttribute('rel');
+        }
+      }
+
+      function reveal() {
+        var key;
+        if (scores.marketing > scores.claude) key = 'marketing';
+        else if (scores.claude > scores.marketing) key = 'claude';
+        else key = 'both';
+        var r = results[key];
+
+        var name = quiz.querySelector('[data-result-name]');
+        name.textContent = r.name;
+        name.classList.toggle('cool', r.colorClass === 'cool');
+
+        quiz.querySelector('[data-result-reason]').textContent = r.reason;
+        var card = quiz.querySelector('[data-result-card]');
+        if (r.hidePriceCard) {
+          card.style.display = 'none';
+        } else {
+          card.style.display = '';
+          quiz.querySelector('[data-result-price]').textContent = r.price;
+          quiz.querySelector('[data-result-format]').textContent = r.format;
+          card.classList.toggle('cool', r.colorClass === 'cool');
+        }
+
+        var cta = quiz.querySelector('[data-result-cta]');
+        cta.firstChild.textContent = r.cta.label + ' ';
+        applyLink(cta, r.cta);
+
+        var alt = quiz.querySelector('[data-result-alt]');
+        alt.textContent = r.alt.label;
+        applyLink(alt, r.alt);
+
+        setStep(3);
+      }
+
+      quiz.addEventListener('click', function (e) {
+        var opt = e.target.closest('.quiz-option');
+        if (opt) {
+          if (opt.classList.contains('is-selected')) return;
+          var weight = opt.dataset.weight;
+          if (weight === 'marketing') scores.marketing += 1;
+          else if (weight === 'claude') scores.claude += 1;
+          else if (weight === 'both') { scores.marketing += 0.5; scores.claude += 0.5; }
+          opt.classList.add('is-selected');
+          var currentStep = Number(opt.closest('.quiz-step').dataset.step);
+          setTimeout(function () {
+            opt.classList.remove('is-selected');
+            if (currentStep === 1) setStep(2);
+            else reveal();
+          }, 240);
+          return;
+        }
+        if (e.target.closest('.quiz-restart')) reset();
+      });
+
+      setStep(1);
+    })();
+  </script>
 </body>
 </html>
