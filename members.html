@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Members / Talk To Sev</title>
+  <meta name="description" content="Your Compound members hub.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles-v2.css">
+
+  <style>
+    /* ---------- members-specific styles ---------- */
+    .members-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 56px 32px 88px;
+    }
+
+    .members-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .members-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+    .members-title .serif {
+      color: var(--red);
+      font-style: italic;
+      font-weight: 300;
+      font-variation-settings: "wdth" 78;
+    }
+
+    .members-lede {
+      color: var(--ink-soft);
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: 12px 12px 0 var(--ink);
+      padding: 36px;
+      margin-bottom: 32px;
+    }
+    .panel-admin { box-shadow: 12px 12px 0 var(--red); }
+
+    .panel-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .panel-admin .panel-eyebrow { color: var(--red); }
+
+    .panel h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--ink-soft);
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+
+    .panel-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 18px 32px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      border: 2px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--red);
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+      border-radius: 0;
+    }
+    .panel-cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 11px 11px 0 var(--red);
+      color: var(--paper);
+    }
+    .panel-cta:disabled { opacity: 0.55; cursor: wait; }
+    .panel-cta .arr { transition: transform 0.18s ease; }
+    .panel-cta:hover .arr { transform: translateX(6px); }
+
+    .panel-cta-red {
+      background: var(--red);
+      color: var(--paper);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+    .panel-cta-red:hover {
+      box-shadow: 11px 11px 0 var(--ink);
+      color: var(--paper);
+    }
+
+    .members-foot {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .signout-btn {
+      background: none;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      padding: 10px 18px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 0;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .signout-btn:hover { background: var(--ink); color: var(--paper); }
+
+    /* loading shell shown until auth resolves */
+    .loading-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 96px 32px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 640px) {
+      .panel { padding: 24px; box-shadow: 8px 8px 0 var(--ink); }
+      .panel-admin { box-shadow: 8px 8px 0 var(--red); }
+      .panel-cta { padding: 16px 22px; font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/"><span class="live-dot"></span>Talk To Sev <span class="topbar-sub">/ Members</span></a>
+      <div class="topbar-links">
+        <a href="/learning">Learning Hub</a>
+        <a href="/claude">Claude</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="loadingShell" class="loading-shell">Checking session…</div>
+
+  <main class="members-wrap hidden" id="membersBody">
+    <p class="members-eyebrow">The Compound · Members hub</p>
+    <h1 class="members-title">Welcome <span class="serif">back,</span> <span id="userName">friend</span>.</h1>
+    <p class="members-lede" id="lede">Your workbook, scripts, and weekly content are one click away.</p>
+
+    <section class="panel">
+      <p class="panel-eyebrow"><span class="live-dot"></span> Your workspace</p>
+      <h2>Open The Compound</h2>
+      <p>Pick up where you left off — ideas, scripts, filming queue, weekly drop.</p>
+      <button class="panel-cta" id="openCompoundBtn" type="button">
+        <span class="btn-label">Open The Compound</span>
+        <span class="arr">→</span>
+      </button>
+    </section>
+
+    <section class="panel panel-admin hidden" id="adminPanel">
+      <p class="panel-eyebrow">Admin access</p>
+      <h2>Admin panel</h2>
+      <p>Student progress, cohorts, template updates.</p>
+      <button class="panel-cta panel-cta-red" id="openAdminBtn" type="button">
+        <span class="btn-label">Open admin</span>
+        <span class="arr">→</span>
+      </button>
+    </section>
+
+    <div class="members-foot">
+      <span>Signed in as <strong id="userEmail">you@example.com</strong></span>
+      <button type="button" class="signout-btn" id="signoutBtn">Sign out</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+  (function () {
+    // ============================================================
+    // Compound (online) Supabase project. Same client as /login.
+    // Shared session via the namespaced storage key.
+    // ============================================================
+    var SUPABASE_URL  = 'https://jspxpcczeeatrmcmmbly.supabase.co';
+    var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzcHhwY2N6ZWVhdHJtY21tYmx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MzY5MzUsImV4cCI6MjA5MjQxMjkzNX0.ijiRDXaBQ5K6DjCaUqVhVGA3C2vgqkellLW-3M5hvfg';
+    var LOGIN_PATH    = '/login';
+
+    // Where The Compound app lives (on GitHub Pages).
+    // Session is handed off via URL hash on these targets.
+    var COMPOUND_BASE = 'https://sevspics.github.io/the-compound/';
+    var COMPOUND_APP  = COMPOUND_BASE + 'app.html';
+    var COMPOUND_ADMIN = COMPOUND_BASE + 'admin.html';
+
+    var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
+      auth: { storageKey: 'tts-compound-auth', persistSession: true, autoRefreshToken: true }
+    });
+    window.__compoundSb = sb;
+
+    var loadingShell = document.getElementById('loadingShell');
+    var body         = document.getElementById('membersBody');
+    var userNameEl   = document.getElementById('userName');
+    var userEmailEl  = document.getElementById('userEmail');
+    var adminPanel   = document.getElementById('adminPanel');
+    var openCompoundBtn = document.getElementById('openCompoundBtn');
+    var openAdminBtn = document.getElementById('openAdminBtn');
+    var signoutBtn   = document.getElementById('signoutBtn');
+
+    // Build the hand-off URL with session tokens in the hash.
+    // The Compound app reads access_token + refresh_token from the
+    // hash, calls sb.auth.setSession(), then clears the hash.
+    function buildHandoffUrl(target, session) {
+      var params = new URLSearchParams();
+      params.set('access_token',  session.access_token);
+      params.set('refresh_token', session.refresh_token);
+      params.set('token_type',    session.token_type || 'bearer');
+      params.set('expires_in',    String(session.expires_in || 3600));
+      params.set('type',          'tts_handoff');
+      return target + '#' + params.toString();
+    }
+
+    async function freshSession() {
+      // refresh first so we hand off a long-lived token, not a stale one
+      try { await sb.auth.refreshSession(); } catch (e) { /* still try below */ }
+      var { data } = await sb.auth.getSession();
+      return data && data.session ? data.session : null;
+    }
+
+    async function handoffTo(target, btn, label) {
+      var labelEl = btn.querySelector('.btn-label');
+      var original = labelEl.textContent;
+      btn.disabled = true;
+      labelEl.textContent = 'Opening…';
+      try {
+        var session = await freshSession();
+        if (!session) {
+          window.location.replace(LOGIN_PATH);
+          return;
+        }
+        window.location.href = buildHandoffUrl(target, session);
+      } catch (err) {
+        console.error('Handoff failed:', err);
+        btn.disabled = false;
+        labelEl.textContent = original;
+        alert('Could not open ' + label + '. Please try again or refresh.');
+      }
+    }
+
+    // ----- main: gate on auth, then render -----
+    (async function init() {
+      var { data } = await sb.auth.getSession();
+      var session = data && data.session;
+      if (!session) {
+        window.location.replace(LOGIN_PATH);
+        return;
+      }
+
+      var user = session.user;
+      userEmailEl.textContent = user.email || '';
+
+      // pull profile for display_name + role (best-effort; failures don't block)
+      var role = 'student';
+      var displayName = (user.email || '').split('@')[0];
+      try {
+        var profRes = await sb.from('profiles').select('display_name, role').eq('id', user.id).single();
+        if (profRes && profRes.data) {
+          if (profRes.data.display_name) displayName = profRes.data.display_name.split(' ')[0];
+          if (profRes.data.role) role = profRes.data.role;
+        }
+      } catch (e) { /* keep defaults */ }
+
+      userNameEl.textContent = displayName;
+      if (role === 'admin') adminPanel.classList.remove('hidden');
+
+      loadingShell.classList.add('hidden');
+      body.classList.remove('hidden');
+
+      // bump last_active in the background
+      try {
+        sb.from('profiles').update({ last_active: new Date().toISOString() }).eq('id', user.id);
+      } catch (e) { /* ignore */ }
+    })();
+
+    // ----- actions -----
+    openCompoundBtn.addEventListener('click', function () {
+      handoffTo(COMPOUND_APP, openCompoundBtn, 'The Compound');
+    });
+    openAdminBtn.addEventListener('click', function () {
+      handoffTo(COMPOUND_ADMIN, openAdminBtn, 'the admin panel');
+    });
+    signoutBtn.addEventListener('click', async function () {
+      try { await sb.auth.signOut(); } catch (e) { /* ignore */ }
+      window.location.replace(LOGIN_PATH);
+    });
+  })();
+  </script>
+</body>
+</html>
