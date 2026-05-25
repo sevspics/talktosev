@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in / Talk To Sev</title>
+  <meta name="description" content="Sign in to your Compound account.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles-v2.css">
+
+  <style>
+    /* ---------- login-specific styles ---------- */
+    .auth-wrap {
+      min-height: calc(100vh - 60px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 32px;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: 12px 12px 0 var(--ink);
+      padding: 40px;
+      position: relative;
+    }
+
+    .auth-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .auth-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+    }
+    .auth-title .serif {
+      color: var(--red);
+      font-style: italic;
+      font-weight: 300;
+      font-variation-settings: "wdth" 78;
+    }
+
+    .auth-lede {
+      color: var(--ink-soft);
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .auth-form { display: flex; flex-direction: column; gap: 18px; }
+
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .field-input {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      color: var(--ink);
+      background: var(--bg);
+      border: 2px solid var(--ink);
+      padding: 14px 16px;
+      outline: none;
+      transition: background 0.18s ease, box-shadow 0.18s ease;
+      width: 100%;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .field-input:focus {
+      background: var(--paper);
+      box-shadow: 4px 4px 0 var(--red);
+      transform: translate(-1px, -1px);
+    }
+    .field-input::placeholder { color: var(--ink-soft); opacity: 0.55; }
+    .field-input.is-error {
+      box-shadow: 4px 4px 0 var(--red);
+      background: rgba(230, 57, 53, 0.06);
+    }
+
+    .forgot-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -8px;
+    }
+    .forgot-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-weight: 600;
+      transition: color 0.18s ease;
+    }
+    .forgot-link:hover { color: var(--red); }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 18px 32px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      border: 2px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--red);
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 0;
+    }
+    .submit-btn:hover:not(:disabled) {
+      transform: translate(-2px, -2px);
+      box-shadow: 11px 11px 0 var(--red);
+    }
+    .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .submit-btn .arr { transition: transform 0.18s ease; }
+    .submit-btn:hover:not(:disabled) .arr { transform: translateX(5px); }
+    .submit-btn.is-loading { color: transparent; position: relative; }
+    .submit-btn.is-loading::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      margin: -11px 0 0 -11px;
+      border: 3px solid var(--paper);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: authSpin 0.7s linear infinite;
+    }
+    @keyframes authSpin { to { transform: rotate(360deg); } }
+
+    .msg {
+      padding: 14px 16px;
+      border: 2px solid var(--ink);
+      font-size: 14px;
+      line-height: 1.45;
+      display: none;
+    }
+    .msg.show { display: block; }
+    .msg-error {
+      background: rgba(230, 57, 53, 0.12);
+      border-color: var(--red);
+      color: var(--red-deep);
+    }
+    .msg-success {
+      background: rgba(31, 78, 95, 0.12);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .auth-foot {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--ink);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 500;
+      text-align: center;
+    }
+    .auth-foot a { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+    .auth-foot a:hover { color: var(--red); border-color: var(--red); }
+
+    .auth-aside {
+      text-align: center;
+      margin-top: 20px;
+      font-family: var(--font-hand);
+      font-size: 20px;
+      color: var(--red);
+      transform: rotate(-1.5deg);
+    }
+
+    @media (max-width: 520px) {
+      .auth-card { padding: 28px 22px; box-shadow: 8px 8px 0 var(--ink); }
+      .auth-title { font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/"><span class="live-dot"></span>Talk To Sev <span class="topbar-sub">/ Sign in</span></a>
+      <div class="topbar-links">
+        <a href="https://enquire.talktosev.com/apply" target="_blank" rel="noopener">Marketing</a>
+        <a href="/claude">Claude</a>
+        <a href="/learning">Learning Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <p class="auth-eyebrow">The Compound · Members</p>
+      <h1 class="auth-title">Welcome <span class="serif">back.</span></h1>
+      <p class="auth-lede">Sign in to your workbook, scripts, and weekly content.</p>
+
+      <div id="errorMsg" class="msg msg-error" role="alert"></div>
+      <div id="successMsg" class="msg msg-success" role="status"></div>
+
+      <form class="auth-form" id="loginForm" autocomplete="on" novalidate>
+        <div class="field">
+          <label class="field-label" for="email">Email</label>
+          <input
+            class="field-input"
+            id="email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="password">Password</label>
+          <input
+            class="field-input"
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Your password"
+            required
+          >
+        </div>
+
+        <div class="forgot-row">
+          <button type="button" class="forgot-link" id="forgotBtn">Forgot password?</button>
+        </div>
+
+        <button class="submit-btn" type="submit" id="submitBtn">
+          <span class="submit-label">Sign in</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
+
+      <div class="auth-foot">
+        Not a member yet? <a href="/apply">Apply here</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+  (function () {
+    // ============================================================
+    // Compound (online) Supabase project.
+    // Same project the GitHub Pages login uses, so existing students
+    // sign in with their current credentials. No migration needed.
+    //
+    // Storage key is namespaced so this client does NOT collide with
+    // the talktosev leads/bookings Supabase client used elsewhere on
+    // this site (apply/admin etc).
+    // ============================================================
+    var SUPABASE_URL  = 'https://jspxpcczeeatrmcmmbly.supabase.co';
+    var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzcHhwY2N6ZWVhdHJtY21tYmx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4MzY5MzUsImV4cCI6MjA5MjQxMjkzNX0.ijiRDXaBQ5K6DjCaUqVhVGA3C2vgqkellLW-3M5hvfg';
+    var MEMBERS_PATH  = '/members';
+    var RESET_URL     = window.location.origin + '/reset-password';
+
+    var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
+      auth: { storageKey: 'tts-compound-auth', persistSession: true, autoRefreshToken: true }
+    });
+    window.__compoundSb = sb; // handy for debugging
+
+    var form       = document.getElementById('loginForm');
+    var emailEl    = document.getElementById('email');
+    var passEl     = document.getElementById('password');
+    var submitBtn  = document.getElementById('submitBtn');
+    var submitLbl  = submitBtn.querySelector('.submit-label');
+    var errorMsg   = document.getElementById('errorMsg');
+    var successMsg = document.getElementById('successMsg');
+    var forgotBtn  = document.getElementById('forgotBtn');
+
+    function showError(text) {
+      errorMsg.textContent = text;
+      errorMsg.classList.add('show');
+      successMsg.classList.remove('show');
+    }
+    function showSuccess(text) {
+      successMsg.textContent = text;
+      successMsg.classList.add('show');
+      errorMsg.classList.remove('show');
+    }
+    function clearMessages() {
+      errorMsg.classList.remove('show');
+      successMsg.classList.remove('show');
+      emailEl.classList.remove('is-error');
+      passEl.classList.remove('is-error');
+    }
+    function setLoading(loading) {
+      submitBtn.disabled = loading;
+      submitBtn.classList.toggle('is-loading', loading);
+    }
+
+    // ----- already signed in? bounce to members hub -----
+    (async function autoBounce() {
+      try {
+        var { data } = await sb.auth.getSession();
+        if (data && data.session) {
+          window.location.replace(MEMBERS_PATH);
+        }
+      } catch (e) { /* ignore — let them log in manually */ }
+    })();
+
+    // ----- login -----
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearMessages();
+
+      var email = (emailEl.value || '').trim().toLowerCase();
+      var password = passEl.value || '';
+
+      if (!email || !password) {
+        showError('Enter your email and password.');
+        (!email ? emailEl : passEl).focus();
+        return;
+      }
+
+      setLoading(true);
+      try {
+        var resp = await sb.auth.signInWithPassword({ email: email, password: password });
+        if (resp.error) throw resp.error;
+
+        // best-effort last_active bump (doesn't block redirect)
+        try {
+          sb.from('profiles')
+            .update({ last_active: new Date().toISOString() })
+            .eq('id', resp.data.user.id);
+        } catch (e) { /* ignore */ }
+
+        showSuccess('Signed in. Redirecting…');
+        window.location.replace(MEMBERS_PATH);
+      } catch (err) {
+        console.error('Login error:', err);
+        var msg = (err && err.message) || 'Something went wrong. Please try again.';
+        if (msg === 'Invalid login credentials') {
+          msg = 'Incorrect email or password.';
+          passEl.classList.add('is-error');
+          passEl.value = '';
+          passEl.focus();
+        }
+        showError(msg);
+        setLoading(false);
+      }
+    });
+
+    // ----- forgot password -----
+    forgotBtn.addEventListener('click', async function () {
+      clearMessages();
+      var email = (emailEl.value || '').trim().toLowerCase();
+      if (!email) {
+        showError('Enter your email above first, then click "Forgot password?".');
+        emailEl.classList.add('is-error');
+        emailEl.focus();
+        return;
+      }
+      try {
+        var resp = await sb.auth.resetPasswordForEmail(email, { redirectTo: RESET_URL });
+        if (resp.error) throw resp.error;
+        showSuccess('Password reset link sent. Check your inbox.');
+      } catch (err) {
+        showError((err && err.message) || 'Could not send reset email. Please try again.');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
